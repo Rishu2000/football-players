@@ -18,7 +18,7 @@ con.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
   con.query(
-    "CREATE TABLE Users (firstName VARCHAR(255), lastName VARCHAR(255), emailAdd VARCHAR(255), contactNo VARCHAR(255), clubOrCounty VARCHAR(255))",
+    "INSERT INTO users (firstName,lastName) VALUES ('Rishav','Kumar Shah')",
     function (err, result) {
       if (err) {
         throw err;
