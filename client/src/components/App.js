@@ -1,7 +1,6 @@
 import React from "react";
 // import styled from "styled-components";
 import Register from "../components/Register";
-import LogIn from "../components/LogIn";
 import "../styles/App.css";
 
 const App = () => {
@@ -10,9 +9,6 @@ const App = () => {
       <div className="row">
         <div className="col-6">
           <Register />
-        </div>
-        <div className="col-6">
-          <LogIn />
         </div>
       </div>
     </div>
