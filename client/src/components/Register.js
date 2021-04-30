@@ -41,11 +41,16 @@ const Register = () => {
           <div className="form-group">
             <label htmlFor="exampleInputContactNo">Contact Number</label>
             <input
-              type="text"
+              type="tel"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               class="form-control"
               id="exampleInputContactNo"
               placeholder="Contact Number"
+              required
             />
+            <small id="ContactNoHelp" className="form-text text-muted">
+              Enter your Telephone Number(in format of xxx-xxx-xxxx)
+            </small>
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputContactNo">
