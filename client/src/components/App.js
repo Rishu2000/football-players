@@ -20,7 +20,3 @@ const App = () => {
 };
 
 export default App;
-
-// const Register = styled.div``;
-
-// const LogIn = styled.div``;
