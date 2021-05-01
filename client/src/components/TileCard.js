@@ -17,7 +17,7 @@ export default TileCard;
 const Container = styled.div`
   width: 250px;
   height: 150px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 4px;
   display: flex;
   align-items: center;
