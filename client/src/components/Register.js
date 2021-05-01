@@ -28,7 +28,7 @@ const Register = () => {
         <Text>Register</Text>
         <form>
           <div className="form-group">
-            <label htmlFor="exampleInputFirstName">First Name</label>
+            <label htmlFor="exampleInputFirstName">First Name*</label>
             <input
               type="text"
               className="form-control"
@@ -68,7 +68,7 @@ const Register = () => {
             </small>
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputContactNo">Contact Number</label>
+            <label htmlFor="exampleInputContactNo">Contact Number*</label>
             <input
               type="tel"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
