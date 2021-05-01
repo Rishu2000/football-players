@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Register = () => {
-  const [firstName, setfirstName] = useState("");
-  const [lastName, setlastName] = useState("");
-  const [email, setemail] = useState("");
-  const [contactNo, setcontactNo] = useState("");
-  const [clubOrCountry, setclubOrCountry] = useState("");
+  const [firstName, setfirstName] = useState();
+  const [lastName, setlastName] = useState();
+  const [email, setemail] = useState();
+  const [contactNo, setcontactNo] = useState();
+  const [clubOrCountry, setclubOrCountry] = useState();
   const register = () => {
     Axios.post("http://localhost:5000/register", {
       firstName: firstName,
@@ -98,7 +99,12 @@ const Register = () => {
             />
           </div>
           <button type="submit" className="btn btn-primary" onClick={register}>
-            Submit
+            <Link
+              to={firstName && contactNo ? "/Players" : "/"}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              Submit
+            </Link>
           </button>
         </form>
       </Content>
