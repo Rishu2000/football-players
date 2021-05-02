@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import TileCard from "../components/TileCard";
 
+const noOfEmptyTileCard = 3;
+
 const playersInfo = [
   {
     name:"Rishav1",
@@ -56,7 +58,15 @@ const Players = () => {
       <YourContainer>
         <Text>Your Players</Text>
         <YoursTile>
-          
+          {
+            [...Array(noOfEmptyTileCard)].map((e,i) => {
+            return (
+                <span>
+                  hi
+                </span>
+              )
+          })
+          }
         </YoursTile>
       </YourContainer>
     </Container>
