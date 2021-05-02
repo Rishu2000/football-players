@@ -61,9 +61,8 @@ const Players = () => {
           {
             [...Array(noOfEmptyTileCard)].map((e,i) => {
             return (
-                <span>
-                  hi
-                </span>
+                <EmptyTile>
+                </EmptyTile>
               )
           })
           }
@@ -105,11 +104,23 @@ border-top:2px solid gray;
       display:flex;
       flex-wrap:wrap;
       justify-content:space-evenly;
-      align-content:space-around; 
+      align-content:space-evenly; 
       list-style:none;
   }
 `
 
 const YoursTile = styled.div`
+height:100%;
 border-top:2px solid gray;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:space-evenly;
+`
+
+const EmptyTile = styled.div`
+  width:250px;
+  height:150px;
+  border:1px solid black;
+  border-radius:4px;
 `
