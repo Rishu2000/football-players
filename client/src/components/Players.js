@@ -1,4 +1,5 @@
 import React from "react";
+import {DragDropContext, Droppable} from "react-beautiful-dnd";
 import styled from "styled-components";
 import TileCard from "../components/TileCard";
 
@@ -39,10 +40,14 @@ const playersInfo = [
 const Players = () => {
   return (
     <Container>
+      <DragDropContext>
+        <Droppable droppableId="dropableID">
+          {(provided) => (
+            <MiniContainer>
       <PlayersContainer>
         <Text>Players</Text>
         <PlayersTile>
-          <ul>
+          <ul {...provided.droppableProps} ref={provided.innerRef}>
             {
               playersInfo.map(({name,club,country},key) => {
                 return (
@@ -57,7 +62,7 @@ const Players = () => {
       </PlayersContainer>
       <YourContainer>
         <Text>Your Players</Text>
-        <YoursTile>
+        <YoursTile {...provided.droppableProps} ref={provided.innerRef}>
           {
             [...Array(noOfEmptyTileCard)].map((e,i) => {
             return (
@@ -68,6 +73,10 @@ const Players = () => {
           }
         </YoursTile>
       </YourContainer>
+      </MiniContainer>
+      )}
+      </Droppable>
+      </DragDropContext>
     </Container>
   )
 };
@@ -76,6 +85,11 @@ export default Players;
 
 const Container = styled.div`
   height:100vh;
+`
+
+const MiniContainer = styled.span`
+  height:100%;
+  display:flex;
   display:grid;
   grid-template-columns:2fr 1fr;
 `
