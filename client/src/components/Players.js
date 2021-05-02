@@ -2,114 +2,104 @@ import React from "react";
 import styled from "styled-components";
 import TileCard from "../components/TileCard";
 
+const playersInfo = [
+  {
+    name:"Rishav1",
+    club:"bihar Club",
+    country:"India"
+  },
+  {
+    name:"Rishav2",
+    club:"bihar Club",
+    country:"India"
+  },
+  {
+    name:"Rishav3",
+    club:"bihar Club",
+    country:"India"
+  },
+  {
+    name:"Rishav4",
+    club:"bihar Club",
+    country:"India"
+  },
+  {
+    name:"Rishav5",
+    club:"bihar Club",
+    country:"India"
+  },
+  {
+    name:"Rishav6",
+    club:"bihar Club",
+    country:"India"
+  }
+]
 const Players = () => {
   return (
-      <div className="container">
-        <div className="row">
-          <div className="col-9">
-            <Text>Players</Text>
-            <Container>
-              <TileContainer>
-                <YourContainer>
-                <TileCard
-                name="Rishav Kumar Shah"
-                club="Bihar shafwewggeeg"
-                country="China"
-              />
-                </YourContainer>
-              </TileContainer>
-              <TileContainer>
-                <YourContainer>
-              <TileCard
-                name="Rishav Kumar Shah"
-                club="Bihar shafwewggeeg"
-                country="China"
-              />
-              </YourContainer>
-              </TileContainer>
-              <TileContainer>
-                <YourContainer>
-              <TileCard
-                name="Rishav Kumar Shah"
-                club="Bihar shafwewggeeg"
-                country="China"
-              />
-              </YourContainer>
-              </TileContainer>
-              <TileContainer>
-              <YourContainer>
-              <TileCard
-                name="Rishav Kumar Shah"
-                club="Bihar shafwewggeeg"
-                country="China"
-              />
-              </YourContainer>
-              </TileContainer>
-              <TileContainer>
-              <YourContainer>
-              <TileCard
-                name="Rishav Kumar Shah"
-                club="Bihar shafwewggeeg"
-                country="China"
-              />
-              </YourContainer>
-              </TileContainer>
-              <TileContainer>
-              <YourContainer>
-              <TileCard
-                name="Rishav Kumar Shah"
-                club="Bihar shafwewggeeg"
-                country="China"
-              />
-              </YourContainer>
-              </TileContainer>
-            </Container>
-          </div>
-          <div className="col-3">
-            <Text>Your Players</Text>
-            <SideContainer>
-              <YourContainer/>
-              <YourContainer/>
-              <YourContainer/>
-            </SideContainer>
-          </div>
-        </div>
-      </div>
-  );
+    <Container>
+      <PlayersContainer>
+        <Text>Players</Text>
+        <PlayersTile>
+          <ul>
+            {
+              playersInfo.map(({name,club,country},key) => {
+                return (
+                  <li key={key}>
+                    <TileCard name={name} club={club} country={country}/> 
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </PlayersTile>
+      </PlayersContainer>
+      <YourContainer>
+        <Text>Your Players</Text>
+        <YoursTile>
+          
+        </YoursTile>
+      </YourContainer>
+    </Container>
+  )
 };
 
 export default Players;
 
-const Text = styled.div`
-  font-weight: 800;
-  font-size: 40px;
-  text-align: center;
-`
-
 const Container = styled.div`
-  height: 570px;
-  display: grid;
-  grid-template-columns: 33.3% 33.3% 33.3%;
-  grid-template-rows: 50% 50%;
-  border-right:2px solid gray;
-`;
-
-const TileContainer = styled.div`
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  height:100vh;
+  display:grid;
+  grid-template-columns:2fr 1fr;
 `
 
-const SideContainer = styled.div`
-height:100%;
+const PlayersContainer = styled.div`
   display:grid;
-  grid-template-columns:100%;
-  grid-template-rows:33.3% 33.3% 33.33.%;
+  grid-template-rows:60px 1fr;
 `
 
 const YourContainer = styled.div`
-  height:150px;
-  width:250;
-  border: 2px solid black;
-  border-radius: 4px;
+  border-left:2px solid grey;
+  display:grid;
+  grid-template-rows:60px 1fr;
+`
+
+const Text = styled.div`
+text-align:center;
+font-size:40px;
+font-weight:800;
+`
+
+const PlayersTile = styled.div`
+border-top:2px solid gray;
+  ul {
+      height:100%;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-evenly;
+      align-content:space-around; 
+      list-style:none;
+  }
+`
+
+const YoursTile = styled.div`
+border-top:2px solid gray;
 `
