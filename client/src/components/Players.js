@@ -1,41 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 import styled from "styled-components";
 import TileCard from "../components/TileCard";
 
 const playersInfo = [
   {
-    name:"Rishav1",
-    club:"bihar Club",
-    country:"India"
+    name:"Lionel Messi",
+    club:"Barcelona",
+    country:"Argentina"
   },
   {
-    name:"Rishav2",
-    club:"bihar Club",
-    country:"India"
+    name:"Cristiano Ronaldo",
+    club:"Real Madrid",
+    country:"Portugal"
   },
   {
-    name:"Rishav3",
-    club:"bihar Club",
-    country:"India"
+    name:"Xavi",
+    club:"Barcelona",
+    country:"Spain"
   },
   {
-    name:"Rishav4",
-    club:"bihar Club",
-    country:"India"
+    name:"Andres Iniesta",
+    club:"Barcelona",
+    country:"Spain"
   },
   {
-    name:"Rishav5",
-    club:"bihar Club",
-    country:"India"
+    name:"Zlatan Ibrahimovic",
+    club:"PSG",
+    country:"Sweden"
   },
   {
-    name:"Rishav6",
-    club:"bihar Club",
-    country:"India"
+    name:"Radamel Falcao",
+    club:"Atletico Madrid",
+    country:"Colombia"
   }
 ]
 const Players = () => {
+  const [characters,setCharacters] = useState(playersInfo)
+  function handleOnDragEnd(result) {
+    console.log(result)
+    // const items = Array.from(characters);
+    // const [reorderItems] = items.splice(result.sourse.index,1);
+    // items.splice(result.destination.index,0,reorderItems);
+    // setCharacters(items);
+  }
   return (
     <Container>
             <MiniContainer>
@@ -45,21 +53,26 @@ const Players = () => {
         <Content>Upper Three are default selected player's tile, you can select any others by draging and droping on upper three.</Content>
         </DiscContent>
         <PlayersTile>
-          <DragDropContext>
+          <DragDropContext onDragEnd = {handleOnDragEnd}>
             <Droppable droppableId="playersID">
               {(provided) => (
           <ul {...provided.droppableProps} ref={provided.innerRef}>     
             {
-              playersInfo.map(({name,club,country}) => {
+              characters.map(({name,club,country}, index) => {
                 return (
                   <EmptyTile>
-                  <li>  
+                    <Draggable key={name} draggableId={name} index={index}>
+                      {(provided) => (
+                  <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>  
                     <TileCard name={name} club={club} country={country}/> 
                   </li>
+                  )}
+                  </Draggable>
                   </EmptyTile>
                 )
               })
             }
+            {provided.placeholder}  
           </ul>
           )}
           </Droppable>
