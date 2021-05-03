@@ -15,8 +15,8 @@ const TileCard = ({ name, club, country }) => {
 export default TileCard;
 
 const Container = styled.div`
-  width: 250px;
-  height: 150px;
+  width: 300px;
+  height: 200px;
   /* border: 2px solid black; */
   border-radius: 4px;
   display: flex;
@@ -25,7 +25,7 @@ const Container = styled.div`
   font-weight: 500;
   background: url(https://www.ligue1.com/-/media/Project/LFP/Ligue1-COM/Images/Articles-Assests/2020/11/17/Desktop_2021_UK_L1_Nice_OM_collage.jpg);
   background-repeat: no-repeat;
-  background-size: 250px 150px;
+  background-size: 300px 200px;
 `;
 
 const MiniContainer = styled.div`
