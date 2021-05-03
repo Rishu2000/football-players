@@ -45,7 +45,10 @@ const Players = () => {
         <Content>Upper Three are default selected player's tile, you can select any others by draging and droping on upper three.</Content>
         </DiscContent>
         <PlayersTile>
-          <ul>     
+          <DragDropContext>
+            <Droppable droppableId="playersID">
+              {(provided) => (
+          <ul {...provided.droppableProps} ref={provided.innerRef}>     
             {
               playersInfo.map(({name,club,country}) => {
                 return (
@@ -58,6 +61,9 @@ const Players = () => {
               })
             }
           </ul>
+          )}
+          </Droppable>
+          </DragDropContext>
         </PlayersTile>
       </PlayersContainer>
       </MiniContainer>
